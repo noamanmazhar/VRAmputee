@@ -11,6 +11,8 @@ TagManager:
   - Floor
   - FxTemporaire
   - Apple
+  - Log
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Interactable Ignore Ray
   - Body
   - postprocessing
-  - 
+  - Slicer
   - 
   - 
   - 
