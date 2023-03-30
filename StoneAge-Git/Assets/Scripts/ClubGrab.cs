@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -10,23 +11,34 @@ public class ClubGrab : MonoBehaviour
     [SerializeField] private XRGrabInteractable grabbable;
     [SerializeField] private XRInteractionManager IM;
 
+    public SerialPort serial = new SerialPort("COM3", 9600);
+    private string serialData = "";
 
-
-    //private XRGrabInteractable currentInteractable = null;
 
     void Start()
     {
+       
+        serial.Open();
         
-        Invoke("SelectClub", 5.0f);
-        Invoke("DeSelectClub", 6.0f);
-        Invoke("SelectClub", 7.0f);
-        Invoke("DeSelectClub", 8.0f);
-        Invoke("SelectClub", 9.0f);
-        Invoke("DeSelectClub", 10.0f);
-        Invoke("SelectClub", 11.0f);
-        Invoke("DeSelectClub", 12.0f);
 
 
+    }
+
+    void Update()
+    {
+        if (serial.IsOpen)
+        {
+            string data = serial.ReadLine();
+
+            if (data.Contains("Flex"))
+            { 
+                SelectClub();
+            }
+            else if (data.Contains("Relaxed"))
+            {
+                DeSelectClub();
+            }
+        }
     }
 
     private void SelectClub()
