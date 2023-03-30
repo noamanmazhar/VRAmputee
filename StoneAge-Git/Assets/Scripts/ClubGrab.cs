@@ -23,7 +23,6 @@ public class ClubGrab : MonoBehaviour
 
 
     }
-
     void Update()
     {
         if (serial.IsOpen)
