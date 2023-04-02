@@ -23,37 +23,45 @@ public class EMGInteraction : MonoBehaviour
 
     private SerialPort serial;
     private bool isReading = false;
-    
+
+    private bool lightState = false;
+    public float time = 0.05f;
+
     private void Start()
     {
         serial = new SerialPort(portName, baudRate);
         serial.Open();
-        //StartCoroutine(SerialReadCoroutine());
+        StartCoroutine(SerialReadCoroutine());
         Debug.Log(baudRate);
         handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
-        Invoke("HandleFlex", 1.0f);
-        Invoke("HandleRelaxed", 2.0f);
-        Invoke("HandleFlex", 5.0f);
-        Invoke("HandleRelaxed", 8.0f);
-        Invoke("HandleFlex", 15.0f);
-        Invoke("HandleRelaxed", 19.0f);
-        Invoke("HandleFlex", 21.0f);
-        Invoke("HandleRelaxed", 28.0f);
-        Invoke("HandleFlex", 30.0f);
-        Invoke("HandleRelaxed", 35.0f);
-        Invoke("HandleFlex", 41.0f);
-        Invoke("HandleRelaxed", 45.0f);
+
+        serial.Write("0");
+
+        /* Invoke("HandleFlex", 1.0f);
+         Invoke("HandleRelaxed", 2.0f);
+         Invoke("HandleFlex", 5.0f);
+         Invoke("HandleRelaxed", 8.0f);
+         Invoke("HandleFlex", 15.0f);
+         Invoke("HandleRelaxed", 19.0f);
+         Invoke("HandleFlex", 21.0f);
+         Invoke("HandleRelaxed", 28.0f);
+         Invoke("HandleFlex", 30.0f);
+         Invoke("HandleRelaxed", 35.0f);
+         Invoke("HandleFlex", 41.0f);
+         Invoke("HandleRelaxed", 45.0f);*/
+
+        serial.Write("LEDOFF");
 
     }
 
     private void Update()
     {
-        // Do your game logic here
+       
     }
 
     
     
-/*    private IEnumerator SerialReadCoroutine()
+    private IEnumerator SerialReadCoroutine()
     {
         isReading = true;
 
@@ -64,17 +72,20 @@ public class EMGInteraction : MonoBehaviour
                 {
                 //string input = serial.ReadLine().Trim();
                 string input = serial.ReadLine();
-                Debug.Log(input);
+                //Debug.Log(input);
                 if (input.Contains("Flex"))
                 {
                     HandleFlex();
+                    serial.Write("1");
+                    Invoke("turnlightoffdelayed" , time);
                 }
                 else if (input.Contains("Relaxed"))
                 {
                     HandleRelaxed();
+                    //serial.Write("0");
                 }
 
-                *//*  switch (input)
+                /*  switch (input)
                   {
                       case "Flex":
                           HandleFlex();
@@ -85,25 +96,40 @@ public class EMGInteraction : MonoBehaviour
                       default:
                           break;
                   }
-                *//*
+                */
+
+               
             }
 
             yield return new WaitForSeconds(0.1f);
         }
 
         serial.Close();
-    }*/
+    }
 
    
 
     private void HandleFlex()
     {
         handInteractor.StartManualInteraction(grabbable);
+ 
+        Animator animator = handInteractor.GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetFloat("Grip", 1.0f);
+        }
     }
 
     private void HandleRelaxed()
     {
         handInteractor.EndManualInteraction();
+
+        Animator animator = handInteractor.GetComponent<Animator>();
+        if (animator != null)
+        {
+            animator.SetFloat("Grip", 0.0f);
+        }
+
     }
 
     private void OnApplicationQuit()
@@ -121,5 +147,12 @@ public class EMGInteraction : MonoBehaviour
     {
         handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
         CurrentHand = Hand.Left;
+    }
+
+    private void turnlightoffdelayed()
+    {
+        serial.Write("0");
+        lightState = false;
+
     }
 }
