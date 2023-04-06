@@ -11,7 +11,7 @@ public class CharacterControllerHMDUpdater : MonoBehaviour
     private CharacterController _characterController;
     private CharacterControllerDriver _driver;
 
-    private bool _climbing = false;
+   // private bool _climbing = false;
     // Start is called before the first frame update
     void Start()
     {

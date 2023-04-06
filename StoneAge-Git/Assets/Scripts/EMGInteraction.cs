@@ -7,81 +7,88 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class EMGInteraction : MonoBehaviour
 {
 
-    [SerializeField] private XRGrabInteractable grabbable;
-    [SerializeField] private XRInteractionManager IM;
+    XRGrabInteractable grabbable;
+    //private XRGrabInteractable grabbable;
+    // [SerializeField] private XRInteractionManager IM;
 
     private XRDirectInteractor handInteractor;
-    [SerializeField] public GameObject rightHandController;
-    [SerializeField] public GameObject leftHandController;
+    private GameObject rightHandController;
+    private GameObject leftHandController;
 
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
 
-
     public string portName = "COM3";
-    public int baudRate = 9600;
+    public int baudRate = 921600;
 
     private SerialPort serial;
     private bool isReading = false;
+    private bool feedbackState = false;
 
-    private bool lightState = false;
-    public float time = 0.05f;
+
+    private float time = 0.05f;
+
+    
 
     private void Start()
     {
+        grabbable = GameObject.Find("Club").GetComponent<XRGrabInteractable>();
+        // grabbable = clubGrabbable;
+        rightHandController = GameObject.Find("RightHand Controller");
+        leftHandController = GameObject.Find("LeftHand Controller");
+
+        handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
+
+        StopAllCoroutines();
         serial = new SerialPort(portName, baudRate);
         serial.Open();
         StartCoroutine(SerialReadCoroutine());
-        Debug.Log(baudRate);
-        handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
+
+        InvokeRepeating("Serial_Data_Reading", 0f, 0.3f);
+
+        
 
         serial.Write("0");
 
-        /* Invoke("HandleFlex", 1.0f);
-         Invoke("HandleRelaxed", 2.0f);
-         Invoke("HandleFlex", 5.0f);
-         Invoke("HandleRelaxed", 8.0f);
-         Invoke("HandleFlex", 15.0f);
-         Invoke("HandleRelaxed", 19.0f);
-         Invoke("HandleFlex", 21.0f);
-         Invoke("HandleRelaxed", 28.0f);
-         Invoke("HandleFlex", 30.0f);
-         Invoke("HandleRelaxed", 35.0f);
-         Invoke("HandleFlex", 41.0f);
-         Invoke("HandleRelaxed", 45.0f);*/
-
-        serial.Write("LEDOFF");
-
     }
 
-    private void Update()
+    float Serial_Data_Reading()
     {
-       
+        float rcdData = float.Parse(serial.ReadLine());
+        return rcdData;
     }
 
-    
-    
     private IEnumerator SerialReadCoroutine()
     {
         isReading = true;
 
         while (isReading)
         {
-          //  if (serial.IsOpen && serial.BytesToRead > 0)
-                if (serial.IsOpen)
-                {
+            //  if (serial.IsOpen && serial.BytesToRead > 0)
+            if (serial.IsOpen)
+            {
                 //string input = serial.ReadLine().Trim();
-                string input = serial.ReadLine();
-                //Debug.Log(input);
-                if (input.Contains("Flex"))
+                //string input = serial.ReadLine();
+
+                float input = Serial_Data_Reading();
+
+                Debug.Log(input);
+
+                if (input>300)
                 {
                     HandleFlex();
-                    serial.Write("1");
-                    Invoke("turnlightoffdelayed" , time);
+                    if (!feedbackState)
+                    {
+                        serial.Write("1");
+                        Invoke("turnoffvibration", time);
+                        feedbackState = true;
+
+                    }
                 }
-                else if (input.Contains("Relaxed"))
+                else if (input<300)
                 {
                     HandleRelaxed();
+                    feedbackState = false;
                     //serial.Write("0");
                 }
 
@@ -98,36 +105,45 @@ public class EMGInteraction : MonoBehaviour
                   }
                 */
 
-               
+
             }
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
         }
 
         serial.Close();
     }
 
-   
+
 
     private void HandleFlex()
     {
-        handInteractor.StartManualInteraction(grabbable);
- 
+        if(!handInteractor.isSelectActive)
+        {
+            handInteractor.StartManualInteraction(grabbable);
+        }
+        
+
         Animator animator = handInteractor.GetComponent<Animator>();
         if (animator != null)
         {
             animator.SetFloat("Grip", 1.0f);
+            Debug.Log("Hand animation played");
         }
     }
 
     private void HandleRelaxed()
     {
-        handInteractor.EndManualInteraction();
+        if (handInteractor.isSelectActive)
+        {
+            handInteractor.EndManualInteraction();
+        }
 
         Animator animator = handInteractor.GetComponent<Animator>();
         if (animator != null)
         {
             animator.SetFloat("Grip", 0.0f);
+            Debug.Log("Hand animation played");
         }
 
     }
@@ -149,10 +165,10 @@ public class EMGInteraction : MonoBehaviour
         CurrentHand = Hand.Left;
     }
 
-    private void turnlightoffdelayed()
+    private void turnoffvibration()
     {
         serial.Write("0");
-        lightState = false;
+        
 
     }
 }

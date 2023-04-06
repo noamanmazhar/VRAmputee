@@ -4,6 +4,7 @@ using UnityEditor;
 [CustomEditor(typeof(EMGInteraction))]
 public class EMGInteractionGUI : Editor
 {
+    public static bool _isHandRight;
     public override void OnInspectorGUI()
     {
         EMGInteraction myScript = (EMGInteraction)target;
@@ -23,14 +24,19 @@ public class EMGInteractionGUI : Editor
 
         GUILayout.BeginVertical(style);
         GUILayout.BeginHorizontal();
+
         if (GUILayout.Button("Set Right Hand"))
         {
+
             myScript.SetRightHand();
+            _isHandRight = true;
         }
 
         if (GUILayout.Button("Set Left Hand"))
         {
+
             myScript.SetLeftHand();
+            _isHandRight = false;
         }
 
 
@@ -43,5 +49,10 @@ public class EMGInteractionGUI : Editor
 
 
 
+    }
+
+    public static bool IsHandRight()
+    {
+        return _isHandRight;
     }
 }
