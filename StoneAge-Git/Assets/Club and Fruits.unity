@@ -306,6 +306,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce22e01849b445e40a7832006704caeb, type: 3}
+--- !u!1 &56903917
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 56903918}
+  - component: {fileID: 56903919}
+  m_Layer: 0
+  m_Name: AttachCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &56903918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56903917}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6841838215780209346}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &56903919
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56903917}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.24
+  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!4 &60620596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010377046070, guid: ddd082fb4672f6643be6891e17a84358, type: 3}
@@ -502,6 +546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handPrefab: {fileID: 7977913135874535163, guid: 3936d20768b4e034b84206ae60f0d0f5, type: 3}
   hideHandOnSelect: 0
+  hideHandOnSelectEMG: 1
   inputDeviceCharacteristics: 576
 --- !u!114 &117234561
 MonoBehaviour:
@@ -532,10 +577,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117234560}
+        m_TargetAssemblyTypeName: HandComplete, Assembly-CSharp
+        m_MethodName: HideHandOnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117234560}
+        m_TargetAssemblyTypeName: HandComplete, Assembly-CSharp
+        m_MethodName: HideHandOnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -4962,8 +5031,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76bb0b342823e714c9314605dbac3f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  closedrighthand: {fileID: 4753929151693823455, guid: 69de664c10c7c984fbc19a118dc50bb2, type: 3}
+  closedlefthand: {fileID: 4753929151693823455, guid: e1f9ec76081b61d49b67f46c45ea4da7, type: 3}
   portName: COM3
   baudRate: 115200
+  HandComplete: {fileID: 0}
 --- !u!1001 &1269060288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10001,8 +10073,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1bc53b2a6797c5429e42876f3f16d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handPrefab: {fileID: 1098453448789019919, guid: a6090a17c8dd86b41ac96773952acdd8, type: 3}
+  handPrefab: {fileID: 7977913135874535163, guid: b10459558849c924aa9649e45b8e816c, type: 3}
   hideHandOnSelect: 0
+  hideHandOnSelectEMG: 1
   inputDeviceCharacteristics: 320
 --- !u!114 &2137187027
 MonoBehaviour:
@@ -10475,8 +10548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 1825280435}
-  m_Colliders:
-  - {fileID: 0}
+  m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -10542,7 +10614,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 1
+  m_AttachEaseInTime: 0.15
   m_MovementType: 2
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -10757,6 +10829,7 @@ Transform:
   m_LocalScale: {x: 0.65999997, y: 1, z: 0.65999997}
   m_Children:
   - {fileID: 507265188}
+  - {fileID: 56903918}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -96.141, y: 0, z: 90}

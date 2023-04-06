@@ -13,6 +13,8 @@ TagManager:
   - Apple
   - Log
   - Ground
+  - RightHandClone
+  - LeftHandClone
   layers:
   - Default
   - TransparentFX

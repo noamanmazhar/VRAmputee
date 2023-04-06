@@ -10,7 +10,8 @@ public class HandComplete : MonoBehaviour
     
     //Allows for hiding of hand prefab if set to true
     public bool hideHandOnSelect = false;
-    
+
+
     //Stores what kind of characteristics we're looking for with our Input Device when we search for it later
     public InputDeviceCharacteristics inputDeviceCharacteristics;
 
@@ -18,6 +19,8 @@ public class HandComplete : MonoBehaviour
     private InputDevice _targetDevice;
     private Animator _handAnimator;
     private SkinnedMeshRenderer _handMesh;
+
+    private bool _isInitialized = false;
 
     public void HideHandOnSelect()
     {
@@ -29,6 +32,31 @@ public class HandComplete : MonoBehaviour
     private void Start()
     {
         InitializeHand();
+    }
+
+    public void HideHandOnSelectEMG()
+    {
+        if (_handAnimator != null)
+        {
+            _handAnimator.SetBool("GripEMG", true);
+        }
+          
+    }
+
+    public void HideHandOnDeSelectEMG()
+    {
+        if (_handAnimator != null)
+        {
+            _handAnimator.SetBool("GripEMG", false);
+        }
+
+    }
+
+    public void H()
+    {
+
+        Debug.Log("hehehehehehehehheh");
+
     }
 
     private void InitializeHand()
@@ -47,7 +75,14 @@ public class HandComplete : MonoBehaviour
             GameObject spawnedHand = Instantiate(handPrefab, transform);
             _handAnimator = spawnedHand.GetComponent<Animator>();
             _handMesh = spawnedHand.GetComponentInChildren<SkinnedMeshRenderer>();
+
+            _isInitialized = true;
         }
+        else if (devices.Count == 0)
+        {
+            _isInitialized = false;
+        }
+        
     }
 
 

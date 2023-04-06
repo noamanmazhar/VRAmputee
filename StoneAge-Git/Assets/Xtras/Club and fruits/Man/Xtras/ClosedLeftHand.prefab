@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 5382516017629349733}
   - component: {fileID: 7504110522847743570}
   m_Layer: 0
-  m_Name: HandForPose
+  m_Name: ClosedLeftHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,15 +271,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4753929151693823455}
-  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 20.9, y: 76.6, z: -48.4}
-  m_LocalScale: {x: 400, y: 400, z: 400}
+  m_LocalRotation: {x: -0.5687794, y: -0.4201071, z: 0.4201071, w: -0.5687794}
+  m_LocalPosition: {x: -0.0162, y: -0.0003, z: -0.0884}
+  m_LocalScale: {x: 1, y: -1, z: 1}
   m_Children:
   - {fileID: 4391559434268196701}
   - {fileID: 3135545554049580963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -200.6, z: 86.5}
 --- !u!95 &7504110522847743570
 Animator:
   serializedVersion: 3
@@ -290,7 +290,7 @@ Animator:
   m_GameObject: {fileID: 4753929151693823455}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bce6beb91e6768b489d9c7bccd5a8f43, type: 2}
+  m_Controller: {fileID: 9100000, guid: ccb828f9610caf04a9d22faf77b94db4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

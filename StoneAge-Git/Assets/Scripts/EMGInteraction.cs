@@ -8,12 +8,18 @@ public class EMGInteraction : MonoBehaviour
 {
 
     XRGrabInteractable grabbable;
-    //private XRGrabInteractable grabbable;
-    // [SerializeField] private XRInteractionManager IM;
 
     private XRDirectInteractor handInteractor;
     private GameObject rightHandController;
     private GameObject leftHandController;
+
+    public GameObject closedrighthand;
+    private GameObject closedrighthandinstance;
+    public GameObject closedlefthand;
+    private GameObject closedlefthandinstance;
+
+    HandComplete righthandcomplete;
+    HandComplete lefthandcomplete;
 
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
@@ -26,18 +32,19 @@ public class EMGInteraction : MonoBehaviour
     private bool feedbackState = false;
 
 
-    private float time = 0.05f;
-
-    
-
     private void Start()
     {
         grabbable = GameObject.Find("Club").GetComponent<XRGrabInteractable>();
-        // grabbable = clubGrabbable;
+
         rightHandController = GameObject.Find("RightHand Controller");
         leftHandController = GameObject.Find("LeftHand Controller");
 
-        handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
+        righthandcomplete = rightHandController.GetComponent<HandComplete>();
+        lefthandcomplete = leftHandController.GetComponent<HandComplete>();
+
+
+        SetRightHand();
+
 
         StopAllCoroutines();
         serial = new SerialPort(portName, baudRate);
@@ -46,12 +53,11 @@ public class EMGInteraction : MonoBehaviour
 
         InvokeRepeating("Serial_Data_Reading", 0f, 0.3f);
 
-        
-
         serial.Write("0");
 
     }
 
+ 
     float Serial_Data_Reading()
     {
         float rcdData = float.Parse(serial.ReadLine());
@@ -64,11 +70,10 @@ public class EMGInteraction : MonoBehaviour
 
         while (isReading)
         {
-            //  if (serial.IsOpen && serial.BytesToRead > 0)
+
             if (serial.IsOpen)
             {
-                //string input = serial.ReadLine().Trim();
-                //string input = serial.ReadLine();
+
 
                 float input = Serial_Data_Reading();
 
@@ -80,7 +85,7 @@ public class EMGInteraction : MonoBehaviour
                     if (!feedbackState)
                     {
                         serial.Write("1");
-                        Invoke("turnoffvibration", time);
+                        Invoke("turnoffvibration", 0.05f);
                         feedbackState = true;
 
                     }
@@ -89,21 +94,9 @@ public class EMGInteraction : MonoBehaviour
                 {
                     HandleRelaxed();
                     feedbackState = false;
-                    //serial.Write("0");
+                    
                 }
 
-                /*  switch (input)
-                  {
-                      case "Flex":
-                          HandleFlex();
-                          break;
-                      case "Relaxed":
-                          HandleRelaxed();
-                          break;
-                      default:
-                          break;
-                  }
-                */
 
 
             }
@@ -121,54 +114,105 @@ public class EMGInteraction : MonoBehaviour
         if(!handInteractor.isSelectActive)
         {
             handInteractor.StartManualInteraction(grabbable);
-        }
-        
 
-        Animator animator = handInteractor.GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.SetFloat("Grip", 1.0f);
-            Debug.Log("Hand animation played");
+            if (CurrentHand == Hand.Right)
+            {
+                
+                righthandcomplete.HideHandOnSelectEMG();
+            }
+            else if (CurrentHand == Hand.Left)
+            {
+                
+                lefthandcomplete.HideHandOnSelectEMG();
+            }
+
+            
+            
         }
+    
     }
+
 
     private void HandleRelaxed()
     {
         if (handInteractor.isSelectActive)
         {
             handInteractor.EndManualInteraction();
+
+            if (CurrentHand == Hand.Right)
+            {
+                
+                righthandcomplete.HideHandOnDeSelectEMG();
+            }
+            else if (CurrentHand == Hand.Left)
+            {
+                
+                lefthandcomplete.HideHandOnDeSelectEMG();
+            }
+
+            
+           
+
         }
 
-        Animator animator = handInteractor.GetComponent<Animator>();
-        if (animator != null)
-        {
-            animator.SetFloat("Grip", 0.0f);
-            Debug.Log("Hand animation played");
-        }
-
+       
     }
+
 
     private void OnApplicationQuit()
     {
         isReading = false;
     }
+    private void turnoffvibration()
+    {
+        serial.Write("0");
+
+
+    }
+
+    #region Seperate settings for Right & Left Hands
 
     public void SetRightHand()
     {
         handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
         CurrentHand = Hand.Right;
+        Debug.Log("RightHandSelected");
     }
 
     public void SetLeftHand()
     {
         handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
         CurrentHand = Hand.Left;
+        Debug.Log("LeftHandSelected");
     }
 
-    private void turnoffvibration()
+
+
+    private void InstantiateRightHandClosed()
     {
-        serial.Write("0");
-        
-
+        // Instantiate the prefab
+        closedrighthandinstance = Instantiate(closedrighthand, rightHandController.transform);
     }
+
+    private void DestroyRightHandClosed()
+    {
+        // Destroy the prefab
+        Destroy(closedrighthandinstance);
+    }
+
+    private void InstantiateLeftHandClosed()
+    {
+        // Instantiate the prefab
+        closedlefthandinstance = Instantiate(closedlefthand, leftHandController.transform);
+    }
+
+    private void DestroyLeftHandClosed()
+    {
+        // Destroy the prefab
+        Destroy(closedlefthandinstance);
+    }
+
+    #endregion
+
+
 }
