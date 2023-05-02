@@ -55,7 +55,7 @@ public class HandComplete : MonoBehaviour
     public void H()
     {
 
-        Debug.Log("hehehehehehehehheh");
+        Debug.Log("TestH");
 
     }
 
@@ -112,6 +112,8 @@ public class HandComplete : MonoBehaviour
             _handAnimator.SetFloat("Trigger", 0);
         }
         //This will get the value for our grip from the target device and output a flaot into gripValue
+/*
+
         if (_targetDevice.TryGetFeatureValue(CommonUsages.grip, out float gripValue))
         {
             _handAnimator.SetFloat("Grip", gripValue);
@@ -120,6 +122,8 @@ public class HandComplete : MonoBehaviour
         {
             _handAnimator.SetFloat("Grip", 0);
         }
+
+*/
     }
 
 

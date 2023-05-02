@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(EMGInteraction))]
 public class EMGInteractionGUI : Editor
 {
@@ -56,3 +58,5 @@ public class EMGInteractionGUI : Editor
         return _isHandRight;
     }
 }
+
+#endif

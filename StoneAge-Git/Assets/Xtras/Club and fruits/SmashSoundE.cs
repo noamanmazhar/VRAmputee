@@ -1,28 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SmashSoundE : MonoBehaviour
 {
     public AudioSource audioPlayer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public XRGrabInteractable Club;
 
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Apple")
         {
-            audioPlayer.Play();
+            if (Club.isSelected)
+            {
+                audioPlayer.Play();
+            }
+            
 
         }
     }

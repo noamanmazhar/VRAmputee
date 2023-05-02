@@ -79,7 +79,7 @@ public class EMGInteraction : MonoBehaviour
 
                 Debug.Log(input);
 
-                if (input>300)
+                if (input>15)
                 {
                     HandleFlex();
                     if (!feedbackState)

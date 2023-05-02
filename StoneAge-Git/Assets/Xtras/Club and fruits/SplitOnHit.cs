@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 public class SplitOnHit : MonoBehaviour
@@ -13,6 +14,8 @@ public class SplitOnHit : MonoBehaviour
 
     // The position at which the VFX should be displayed
     //public Vector3 vfxPosition;
+
+    public XRGrabInteractable Club;
 
     // Reference to the prefab that will be used to create the split pieces
     public GameObject splitPrefab;
@@ -42,17 +45,20 @@ public class SplitOnHit : MonoBehaviour
         // Check if the object that collided with this object has a tag of "Bullet"
         if (collision.collider.tag == "Club")
         {
-            // Split the object into pieces
-            Split();
+            if (Club.isSelected)
+            {
+                // Split the object into pieces
+                Split();
 
-            // Add point in score manager script
-            ScoreManager.instance.AddPoint();
+                // Add point in score manager script
+                ScoreManager.instance.AddPoint();
 
-            // Display the VFX
-            DisplayVFX(transform.position, vfxPrefab.transform.rotation);
+                // Display the VFX
+                DisplayVFX(transform.position, vfxPrefab.transform.rotation);
 
-            // Play the collision sound
-           // audioSource.Play();
+                // Play the collision sound
+                // audioSource.Play();
+            }
         }
     }
 
