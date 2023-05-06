@@ -31,6 +31,8 @@ public class EMGInteraction : MonoBehaviour
     private bool isReading = false;
     private bool feedbackState = false;
 
+    public int EMGThreshold = 15;
+
 
     private void Start()
     {
@@ -79,7 +81,7 @@ public class EMGInteraction : MonoBehaviour
 
                 Debug.Log(input);
 
-                if (input>15)
+                if (input>EMGThreshold)
                 {
                     HandleFlex();
                     if (!feedbackState)

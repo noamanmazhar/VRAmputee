@@ -5110,6 +5110,7 @@ MonoBehaviour:
   closedlefthand: {fileID: 4753929151693823455, guid: e1f9ec76081b61d49b67f46c45ea4da7, type: 3}
   portName: COM4
   baudRate: 115200
+  EMGThreshold: 15
 --- !u!1001 &1269060288
 PrefabInstance:
   m_ObjectHideFlags: 0
