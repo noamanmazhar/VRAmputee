@@ -9,7 +9,7 @@ public class LiveEMGDisplay : MonoBehaviour
     private Texture2D barTexture;
     private Texture2D lineTexture;
 
-    public float threshpos = 200;
+    // public float threshpos = 200;
 
     private void Start()
     {

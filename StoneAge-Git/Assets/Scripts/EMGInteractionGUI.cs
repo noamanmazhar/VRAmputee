@@ -50,9 +50,8 @@ public class EMGInteractionGUI : Editor
         EditorGUILayout.Space(10);
         EditorGUILayout.LabelField("Current Hand: ------------   " + myScript.CurrentHand.ToString() + "   ------------", EditorStyles.boldLabel);
 
+        EditorGUILayout.Space(50);
 
-        GUILayout.BeginVertical(style);
-        GUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Calibrate Flex Value"))
         {
@@ -61,8 +60,7 @@ public class EMGInteractionGUI : Editor
 
         }
 
-        GUILayout.EndHorizontal();
-        GUILayout.EndVertical();
+
 
     }
 

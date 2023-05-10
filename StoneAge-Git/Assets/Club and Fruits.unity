@@ -5123,8 +5123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emgInteraction: {fileID: 1263677585}
-  displayLiveEMGValue: 1
-  threshpos: 200
+  displayLiveEMGValue: 0
 --- !u!4 &1263677588
 Transform:
   m_ObjectHideFlags: 0
