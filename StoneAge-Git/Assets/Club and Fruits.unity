@@ -5072,7 +5072,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263677588}
-  - component: {fileID: 1263677589}
+  - component: {fileID: 1263677584}
+  - component: {fileID: 1263677585}
+  - component: {fileID: 1263677586}
   m_Layer: 0
   m_Name: EMGInteraction
   m_TagString: Untagged
@@ -5080,6 +5082,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1263677584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263677583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127de2b22b53f5944854927b06773889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM4
+  _baudRate: 115200
+--- !u!114 &1263677585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263677583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5df2e1bd2e69dd4992530ae07047b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _arduino: {fileID: 1263677584}
+  EMGThreshold: 100
+--- !u!114 &1263677586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263677583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a810409477a4644eab1a4dd79610818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emgInteraction: {fileID: 1263677585}
+  displayLiveEMGValue: 1
+  threshpos: 200
 --- !u!4 &1263677588
 Transform:
   m_ObjectHideFlags: 0
@@ -5094,23 +5139,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1263677589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263677583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76bb0b342823e714c9314605dbac3f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  closedrighthand: {fileID: 4753929151693823455, guid: 69de664c10c7c984fbc19a118dc50bb2, type: 3}
-  closedlefthand: {fileID: 4753929151693823455, guid: e1f9ec76081b61d49b67f46c45ea4da7, type: 3}
-  portName: COM4
-  baudRate: 115200
-  EMGThreshold: 15
 --- !u!1001 &1269060288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9004,6 +9032,7 @@ GameObject:
   - component: {fileID: 1883406395}
   - component: {fileID: 1883406394}
   - component: {fileID: 1883406393}
+  - component: {fileID: 1883406397}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -9088,6 +9117,20 @@ Transform:
   m_Father: {fileID: 1114670046}
   m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1883406397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883406392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 127de2b22b53f5944854927b06773889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portName: COM4
+  _baudRate: 0
 --- !u!1001 &1888597315
 PrefabInstance:
   m_ObjectHideFlags: 0

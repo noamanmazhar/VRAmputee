@@ -46,10 +46,23 @@ public class EMGInteractionGUI : Editor
         GUILayout.EndVertical();
 
 
+
         EditorGUILayout.Space(10);
         EditorGUILayout.LabelField("Current Hand: ------------   " + myScript.CurrentHand.ToString() + "   ------------", EditorStyles.boldLabel);
 
 
+        GUILayout.BeginVertical(style);
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("Calibrate Flex Value"))
+        {
+
+            myScript.GetAvgValue();
+
+        }
+
+        GUILayout.EndHorizontal();
+        GUILayout.EndVertical();
 
     }
 

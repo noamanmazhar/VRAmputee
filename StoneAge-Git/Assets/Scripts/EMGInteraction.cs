@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System.Linq;
 
 public class EMGInteraction : MonoBehaviour
 {
@@ -13,22 +15,16 @@ public class EMGInteraction : MonoBehaviour
     private GameObject rightHandController;
     private GameObject leftHandController;
 
-    public GameObject closedrighthand;
-    private GameObject closedrighthandinstance;
-    public GameObject closedlefthand;
-    private GameObject closedlefthandinstance;
 
     HandComplete righthandcomplete;
     HandComplete lefthandcomplete;
 
+    public ArduinoCom _arduino;
+
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
 
-    public string portName = "COM3";
-    public int baudRate = 921600;
 
-    private SerialPort serial;
-    private bool isReading = false;
     private bool feedbackState = false;
 
     public int EMGThreshold = 15;
@@ -48,90 +44,70 @@ public class EMGInteraction : MonoBehaviour
         SetRightHand();
 
 
-        StopAllCoroutines();
-        serial = new SerialPort(portName, baudRate);
-        serial.Open();
-        StartCoroutine(SerialReadCoroutine());
+        turnoffvibration();
 
-        InvokeRepeating("Serial_Data_Reading", 0f, 0.3f);
-
-        serial.Write("0");
+        Debug.Log("_arduino is " + (_arduino == null ? "not " : "") + "assigned.");
 
     }
 
- 
-    float Serial_Data_Reading()
-    {
-        float rcdData = float.Parse(serial.ReadLine());
-        return rcdData;
-    }
+    //private IEnumerator SerialReadCoroutine()
 
-    private IEnumerator SerialReadCoroutine()
+    private void FixedUpdate()
     {
-        isReading = true;
 
-        while (isReading)
+        float input = _arduino.GetData();
+        Debug.Log("EMG:\t" + input);
+
+        if (input >= EMGThreshold)
         {
-
-            if (serial.IsOpen)
+            HandleFlex();
+            if (!feedbackState)
             {
+                _arduino.SendData("1");
 
-
-                float input = Serial_Data_Reading();
-
-                Debug.Log(input);
-
-                if (input>EMGThreshold)
-                {
-                    HandleFlex();
-                    if (!feedbackState)
-                    {
-                        serial.Write("1");
-                        Invoke("turnoffvibration", 0.05f);
-                        feedbackState = true;
-
-                    }
-                }
-                else if (input<300)
-                {
-                    HandleRelaxed();
-                    feedbackState = false;
-                    
-                }
-
-
+                Invoke("turnoffvibration", 0.05f);
+                feedbackState = true;
 
             }
+        }
+        else
+        {
+            HandleRelaxed();
+            feedbackState = false;
 
-            yield return new WaitForSeconds(0.3f);
         }
 
-        serial.Close();
+
     }
 
+    public float LiveEMGValue(float liveEMG)
+    {
+        liveEMG = _arduino.GetData();
+        return liveEMG;
+    }
 
 
     private void HandleFlex()
     {
-        if(!handInteractor.isSelectActive)
+        if (!handInteractor.isSelectActive)
         {
             handInteractor.StartManualInteraction(grabbable);
 
             if (CurrentHand == Hand.Right)
             {
-                
+
                 righthandcomplete.HideHandOnSelectEMG();
             }
             else if (CurrentHand == Hand.Left)
             {
-                
+
                 lefthandcomplete.HideHandOnSelectEMG();
             }
 
-            
-            
+
+
         }
-    
+
     }
 
 
@@ -143,32 +119,30 @@ public class EMGInteraction : MonoBehaviour
 
             if (CurrentHand == Hand.Right)
             {
-                
+
                 righthandcomplete.HideHandOnDeSelectEMG();
             }
             else if (CurrentHand == Hand.Left)
             {
-                
+
                 lefthandcomplete.HideHandOnDeSelectEMG();
             }
 
-            
-           
+
+
 
         }
 
-       
+
     }
 
 
-    private void OnApplicationQuit()
-    {
-        isReading = false;
-    }
+
+
     private void turnoffvibration()
     {
-        serial.Write("0");
-
+        //serial.Write("0");
+         _arduino.SendData("0");
 
     }
 
@@ -188,33 +162,29 @@ public class EMGInteraction : MonoBehaviour
         Debug.Log("LeftHandSelected");
     }
 
-
-
-    private void InstantiateRightHandClosed()
-    {
-        // Instantiate the prefab
-        closedrighthandinstance = Instantiate(closedrighthand, rightHandController.transform);
-    }
-
-    private void DestroyRightHandClosed()
-    {
-        // Destroy the prefab
-        Destroy(closedrighthandinstance);
-    }
-
-    private void InstantiateLeftHandClosed()
-    {
-        // Instantiate the prefab
-        closedlefthandinstance = Instantiate(closedlefthand, leftHandController.transform);
-    }
-
-    private void DestroyLeftHandClosed()
-    {
-        // Destroy the prefab
-        Destroy(closedlefthandinstance);
-    }
-
     #endregion
 
+    public float GetAvgValue()
+    {
+        List<float> data = new List<float>();
+        float elapsedTime = 0f;
+        float averageData = 0f;
+
+        while (elapsedTime < 3f)
+        {
+            float input = _arduino.GetData();
+            data.Add(input);
+            elapsedTime += Time.deltaTime;
+        }
+
+        if (data.Count > 0)
+        {
+            averageData = data.Average();
+        }
+
+        Debug.Log("Average Value While Flexing = " + averageData);
+        EMGThreshold = (int) averageData;
+        return averageData;
+    }
 
 }
