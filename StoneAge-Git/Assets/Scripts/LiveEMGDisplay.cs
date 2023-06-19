@@ -4,6 +4,7 @@ public class LiveEMGDisplay : MonoBehaviour
 {
     public EMGInteraction emgInteraction;
     public bool displayLiveEMGValue = false;
+    public bool displayLiveEMGText = false;
 
     private GUIStyle guiStyle = new GUIStyle();
     private Texture2D barTexture;
@@ -14,7 +15,7 @@ public class LiveEMGDisplay : MonoBehaviour
     private void Start()
     {
         // Set font size and alignment for the label
-        guiStyle.fontSize = 15;
+        guiStyle.fontSize = 25;
         guiStyle.alignment = TextAnchor.MiddleCenter;
 
         // Create a texture for the bar
@@ -32,8 +33,10 @@ public class LiveEMGDisplay : MonoBehaviour
     {
         if (displayLiveEMGValue)
         {
-            // GUILayout.Label("Live EMG Value: " + emgInteraction.LiveEMGValue(0), guiStyle);
-
+            if (displayLiveEMGText)
+            {
+                GUILayout.Label("Live EMG Value: " + emgInteraction.LiveEMGValue(0), guiStyle);
+            }
             // Calculate the percentage of the current EMG value relative to the maximum value of 1023
             float emgPercent = Mathf.Clamp(emgInteraction.LiveEMGValue(0) / 1023f, 0f, 1f);
 

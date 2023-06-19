@@ -19,15 +19,20 @@ public class EMGInteraction : MonoBehaviour
     HandComplete righthandcomplete;
     HandComplete lefthandcomplete;
 
+    [SerializeField] private GameObject CanvasCalib;
+
     public ArduinoCom _arduino;
 
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
 
 
+    public bool _EMGDebugLog = false;
+
     private bool feedbackState = false;
 
     public int EMGThreshold = 15;
+    public float CalibrationDuration = 3f;
 
 
     private void Start()
@@ -46,7 +51,7 @@ public class EMGInteraction : MonoBehaviour
 
         turnoffvibration();
 
-        Debug.Log("_arduino is " + (_arduino == null ? "not " : "") + "assigned.");
+        // Debug.Log("_arduino is " + (_arduino == null ? "not " : "") + "assigned.");
 
     }
 
@@ -56,6 +61,9 @@ public class EMGInteraction : MonoBehaviour
     {
 
         float input = _arduino.GetData();
+        
+        
+        if (_EMGDebugLog == true)
         Debug.Log("EMG:\t" + input);
 
         if (input >= EMGThreshold)
@@ -164,27 +172,45 @@ public class EMGInteraction : MonoBehaviour
 
     #endregion
 
-    public float GetAvgValue()
+    #region Calibration stuff
+
+    public void GetAvgValue()
     {
         List<float> data = new List<float>();
-        float elapsedTime = 0f;
         float averageData = 0f;
 
-        while (elapsedTime < 3f)
+         CanvasCalib.SetActive(true);
+        StartCoroutine(CollectDataCoroutine(data, () =>
         {
+            if (data.Count > 0)
+            {
+                averageData = data.Average();
+            }
+
+            Debug.Log("Average Value While Flexing = " + averageData);
+            EMGThreshold = (int)averageData;
+           CanvasCalib.SetActive(false);
+        }));
+    }
+
+    private IEnumerator CollectDataCoroutine(List<float> data, Action onComplete)
+    {
+        float elapsedTime = 0f;
+        // float CalibrationDuration = 3f;
+        float startTime = Time.time;
+
+        while (elapsedTime < CalibrationDuration)
+        {
+            Debug.Log("Calibrating Flex Value........");
             float input = _arduino.GetData();
             data.Add(input);
-            elapsedTime += Time.deltaTime;
+            elapsedTime = Time.time - startTime;
+            yield return null; // Wait for the next frame
         }
 
-        if (data.Count > 0)
-        {
-            averageData = data.Average();
-        }
-
-        Debug.Log("Average Value While Flexing = " + averageData);
-        EMGThreshold = (int) averageData;
-        return averageData;
+        onComplete?.Invoke(); // Invoke the callback function
     }
+    #endregion
+
 
 }
