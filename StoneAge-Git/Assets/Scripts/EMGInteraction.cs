@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO.Ports;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Linq;
 
@@ -23,6 +23,10 @@ public class EMGInteraction : MonoBehaviour
 
     public ArduinoCom _arduino;
 
+   // public InputActionAsset keyboard;
+    // public InputAction _keyboardsettings;
+
+
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
 
@@ -33,6 +37,8 @@ public class EMGInteraction : MonoBehaviour
 
     public int EMGThreshold = 15;
     public float CalibrationDuration = 3f;
+
+    private bool _initialHandSelect = false;
 
 
     private void Start()
@@ -45,8 +51,9 @@ public class EMGInteraction : MonoBehaviour
         righthandcomplete = rightHandController.GetComponent<HandComplete>();
         lefthandcomplete = leftHandController.GetComponent<HandComplete>();
 
-
+        
         SetRightHand();
+        _initialHandSelect = true;
 
 
         turnoffvibration();
@@ -55,7 +62,8 @@ public class EMGInteraction : MonoBehaviour
 
     }
 
-    //private IEnumerator SerialReadCoroutine()
+
+
 
     private void FixedUpdate()
     {
@@ -85,7 +93,7 @@ public class EMGInteraction : MonoBehaviour
 
         }
 
-
+      
     }
 
     public float LiveEMGValue(float liveEMG)
@@ -111,7 +119,6 @@ public class EMGInteraction : MonoBehaviour
 
                 lefthandcomplete.HideHandOnSelectEMG();
             }
-
 
 
         }
@@ -158,16 +165,37 @@ public class EMGInteraction : MonoBehaviour
 
     public void SetRightHand()
     {
+        
+        if (_initialHandSelect == true)
+        {
+            handInteractor.EndManualInteraction();
+        }
+
+        CanvasCalib.SetActive(true);
+        UIText.instance.Right();
+
         handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
         CurrentHand = Hand.Right;
         Debug.Log("RightHandSelected");
+        Invoke("DisableCanvas", 1f);
     }
 
     public void SetLeftHand()
     {
+
+        if (_initialHandSelect == true)
+        {
+            handInteractor.EndManualInteraction();
+        }
+
+        CanvasCalib.SetActive(true);
+        UIText.instance.Left();
+
+        
         handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
         CurrentHand = Hand.Left;
         Debug.Log("LeftHandSelected");
+        Invoke("DisableCanvas", 1f);
     }
 
     #endregion
@@ -179,6 +207,7 @@ public class EMGInteraction : MonoBehaviour
         List<float> data = new List<float>();
         float averageData = 0f;
 
+        UIText.instance.Calibrating();
          CanvasCalib.SetActive(true);
         StartCoroutine(CollectDataCoroutine(data, () =>
         {
@@ -212,5 +241,8 @@ public class EMGInteraction : MonoBehaviour
     }
     #endregion
 
-
+    private void DisableCanvas()
+    {
+        CanvasCalib.SetActive(false);
+    }
 }

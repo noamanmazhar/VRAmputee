@@ -10,6 +10,7 @@ public class LiveEMGDisplay : MonoBehaviour
     private Texture2D barTexture;
     private Texture2D lineTexture;
 
+
     // public float threshpos = 200;
 
     private void Start()
@@ -51,6 +52,9 @@ public class LiveEMGDisplay : MonoBehaviour
 
             Rect threshRect = new Rect(100 + 400 * threshPercent, 50,  5, 25);
             GUI.DrawTexture(threshRect, lineTexture);
+
         }
+
     }
+
 }
