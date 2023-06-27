@@ -57,4 +57,13 @@ public class LiveEMGDisplay : MonoBehaviour
 
     }
 
+    public void EMGboolswap()
+    {
+        if (displayLiveEMGValue == true)
+            displayLiveEMGValue = false;
+
+        else if (displayLiveEMGValue == false)
+            displayLiveEMGValue = true;
+    }
+
 }

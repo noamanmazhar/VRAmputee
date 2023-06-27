@@ -31,12 +31,18 @@ public class SplitOnHit : MonoBehaviour
 
     // The upward modification to apply to the explosion force
     public float explosionUpwardModifier = 0.5f;
+
+    [SerializeField] private GameObject ScoreCanvas;
+
+    private ScoreManager scoremanager;
     
     
     void Start()
     {
         // Get a reference to the AudioSource component
-       // audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
+        scoremanager = ScoreCanvas.GetComponent<ScoreManager>();
+        
     }
 
 
@@ -51,7 +57,7 @@ public class SplitOnHit : MonoBehaviour
                 Split();
 
                 // Add point in score manager script
-                ScoreManager.instance.AddPoint();
+                scoremanager.AddPoint();
 
                 // Display the VFX
                 DisplayVFX(transform.position, vfxPrefab.transform.rotation);

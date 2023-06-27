@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance;
+    //public static ScoreManager instance;
 
     public Text scoreText;
 
@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
 
     public void Awake()
     {
-        instance = this;
+        //  instance = this;
     }
 
     // Start is called before the first frame update
