@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     //public static ScoreManager instance;
 
     public Text scoreText;
+    public Text scoreText2;
 
     int score = 0;
 
@@ -20,6 +21,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         scoreText.text = score.ToString() + "/20 APPLES";
+        scoreText2.text = score.ToString() + "/20 APPLES";
     }
 
     // Update is called once per frame
@@ -27,5 +29,6 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1;
         scoreText.text = score.ToString() + "/20 APPLES";
+        scoreText2.text = score.ToString() + "/20 APPLES";
     }
 }

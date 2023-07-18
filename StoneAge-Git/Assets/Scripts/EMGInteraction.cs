@@ -22,6 +22,7 @@ public class EMGInteraction : MonoBehaviour
     [SerializeField] private GameObject CanvasCalib;
 
     public ArduinoCom _arduino;
+    
 
    // public InputActionAsset keyboard;
     // public InputAction _keyboardsettings;
@@ -51,11 +52,12 @@ public class EMGInteraction : MonoBehaviour
         righthandcomplete = rightHandController.GetComponent<HandComplete>();
         lefthandcomplete = leftHandController.GetComponent<HandComplete>();
 
-        
+        SetLeftHand();
+        SetLeftHand();
         SetRightHand();
         _initialHandSelect = true;
 
-
+        
         turnoffvibration();
 
         // Debug.Log("_arduino is " + (_arduino == null ? "not " : "") + "assigned.");
@@ -165,37 +167,57 @@ public class EMGInteraction : MonoBehaviour
 
     public void SetRightHand()
     {
-        
-        if (_initialHandSelect == true)
+      //  if (CurrentHand != Hand.Right)
         {
-            handInteractor.EndManualInteraction();
+
+            if (_initialHandSelect == true)
+            {
+                handInteractor.EndManualInteraction();
+            }
+
+            CanvasCalib.SetActive(true);
+            UIText.instance.Right();
+
+            handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
+            CurrentHand = Hand.Right;
+
+            righthandcomplete.SettoRobot();
+            lefthandcomplete.SettoHuman();
+            
+
+
+            Debug.Log("RightHandSelected");
+            Invoke("DisableCanvas", 1f);
         }
-
-        CanvasCalib.SetActive(true);
-        UIText.instance.Right();
-
-        handInteractor = rightHandController.GetComponent<XRDirectInteractor>();
-        CurrentHand = Hand.Right;
-        Debug.Log("RightHandSelected");
-        Invoke("DisableCanvas", 1f);
     }
 
     public void SetLeftHand()
     {
-
-        if (_initialHandSelect == true)
+     //   if (CurrentHand != Hand.Left)
         {
-            handInteractor.EndManualInteraction();
+
+            if (_initialHandSelect == true)
+            {
+                handInteractor.EndManualInteraction();
+            }
+
+            CanvasCalib.SetActive(true);
+            UIText.instance.Left();
+
+
+            handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
+            CurrentHand = Hand.Left;
+
+
+            lefthandcomplete.SettoRobot();
+            righthandcomplete.SettoHuman();
+            
+            Debug.Log("LeftHandSelected");
+            Invoke("DisableCanvas", 1f);
+
         }
-
-        CanvasCalib.SetActive(true);
-        UIText.instance.Left();
-
         
-        handInteractor = leftHandController.GetComponent<XRDirectInteractor>();
-        CurrentHand = Hand.Left;
-        Debug.Log("LeftHandSelected");
-        Invoke("DisableCanvas", 1f);
+
     }
 
     #endregion
