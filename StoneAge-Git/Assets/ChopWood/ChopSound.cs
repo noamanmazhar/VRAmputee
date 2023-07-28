@@ -6,9 +6,17 @@ public class ChopSound : MonoBehaviour
 {
     public AudioSource audioPlayer;
 
+    private AxeandWoodScoreManager AxeandWoodScoremanager;
+
+    [SerializeField] private GameObject ScoreCanvas;
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        AxeandWoodScoremanager = ScoreCanvas.GetComponent<AxeandWoodScoreManager>();
 
     }
 
@@ -24,8 +32,8 @@ public class ChopSound : MonoBehaviour
 
         {
             audioPlayer.Play();
-          
 
+            AxeandWoodScoremanager.AddPoint();
         }
     }
 }

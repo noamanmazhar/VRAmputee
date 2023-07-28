@@ -9,7 +9,7 @@ using System.Linq;
 public class EMGInteraction : MonoBehaviour
 {
 
-    XRGrabInteractable grabbable;
+    [SerializeField]  XRGrabInteractable grabbable;
 
     private XRDirectInteractor handInteractor;
     private GameObject rightHandController;
@@ -44,7 +44,7 @@ public class EMGInteraction : MonoBehaviour
 
     private void Start()
     {
-        grabbable = GameObject.Find("Club").GetComponent<XRGrabInteractable>();
+        // grabbable = GameObject.Find("Club").GetComponent<XRGrabInteractable>();
 
         rightHandController = GameObject.Find("RightHand Controller");
         leftHandController = GameObject.Find("LeftHand Controller");
