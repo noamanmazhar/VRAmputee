@@ -1003,7 +1003,7 @@ Transform:
   m_LocalScale: {x: 2.2601557, y: 1.0809, z: 3.0797002}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1263677589
 MonoBehaviour:
@@ -3184,20 +3184,20 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012909443}
   m_LocalRotation: {x: 0.118936546, y: -0.6970324, z: 0.118936546, w: 0.6970324}
-  m_LocalPosition: {x: 0, y: 0, z: -3.821}
-  m_LocalScale: {x: 0.00084196916, y: 0.00084196916, z: 0.00084196916}
+  m_LocalPosition: {x: 0, y: 0, z: -4.8336115}
+  m_LocalScale: {x: 0.0008419692, y: 0.00084196904, z: 0.0008419691}
   m_Children:
   - {fileID: 1515863530}
   - {fileID: 340887354}
   - {fileID: 4183419043688929324}
   - {fileID: 1489819583}
   - {fileID: 1408322398}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 907070665594990525}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 19.367, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -4.84, y: 0.488}
+  m_AnchoredPosition: {x: 8.009468, y: 5.988043}
   m_SizeDelta: {x: 414.99997, y: 768}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2029342238
@@ -7888,7 +7888,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 6d6e23e7c07e38a4fb36316a7bcf609b, type: 2}
+  sharedProfile: {fileID: 11400000, guid: bd4fc6e7042c867448ed8f92df7d62af, type: 2}
 --- !u!1 &907070663837365727
 GameObject:
   m_ObjectHideFlags: 0
@@ -9058,8 +9058,9 @@ Transform:
   - {fileID: 907070664883198532}
   - {fileID: 907070665264750551}
   - {fileID: 907070664931650745}
+  - {fileID: 2012909448}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &907070665594990526
 GameObject:
@@ -25430,7 +25431,7 @@ Transform:
   - {fileID: 8898367878962786412}
   - {fileID: 8898367878466669073}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6099850488986669701
 MeshFilter:
