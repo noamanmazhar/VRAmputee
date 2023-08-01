@@ -15,6 +15,10 @@ TagManager:
   - Ground
   - RightHandClone
   - LeftHandClone
+  - Arrow
+  - Hands
+  - RightHand
+  - LeftHand
   layers:
   - Default
   - TransparentFX
@@ -28,7 +32,7 @@ TagManager:
   - Body
   - postprocessing
   - Slicer
-  - 
+  - Arrow
   - 
   - 
   - 

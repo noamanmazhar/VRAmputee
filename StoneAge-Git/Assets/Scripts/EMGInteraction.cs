@@ -2,70 +2,60 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Linq;
 
 public class EMGInteraction : MonoBehaviour
 {
 
-    [SerializeField]  XRGrabInteractable grabbable;
+    //[SerializeField]  XRGrabInteractable grabbable;
+
+    XRBaseInteractable grabbable;
 
     private XRDirectInteractor handInteractor;
     private GameObject rightHandController;
     private GameObject leftHandController;
-
-
     HandComplete righthandcomplete;
     HandComplete lefthandcomplete;
+
+    public Hovercheck righthovercheck;
+    public Hovercheck lefthovercheck;
 
     [SerializeField] private GameObject CanvasCalib;
 
     public ArduinoCom _arduino;
-    
-
-   // public InputActionAsset keyboard;
-    // public InputAction _keyboardsettings;
-
 
     public enum Hand { Right, Left };
     public Hand CurrentHand { get; private set; }
 
 
-    public bool _EMGDebugLog = false;
-
-    private bool feedbackState = false;
-
     public int EMGThreshold = 15;
     public float CalibrationDuration = 3f;
 
+    public bool _EMGDebugLog = false;
+    private bool feedbackState = false;
     private bool _initialHandSelect = false;
 
 
     private void Start()
     {
-        // grabbable = GameObject.Find("Club").GetComponent<XRGrabInteractable>();
-
         rightHandController = GameObject.Find("RightHand Controller");
         leftHandController = GameObject.Find("LeftHand Controller");
 
         righthandcomplete = rightHandController.GetComponent<HandComplete>();
         lefthandcomplete = leftHandController.GetComponent<HandComplete>();
 
+        righthovercheck = rightHandController.GetComponent<Hovercheck>();
+        lefthovercheck = leftHandController.GetComponent<Hovercheck>();
+
         SetLeftHand();
         SetLeftHand();
         SetRightHand();
         _initialHandSelect = true;
 
-        
         turnoffvibration();
 
-        // Debug.Log("_arduino is " + (_arduino == null ? "not " : "") + "assigned.");
-
     }
-
-
-
 
     private void FixedUpdate()
     {
@@ -82,7 +72,6 @@ public class EMGInteraction : MonoBehaviour
             if (!feedbackState)
             {
                 _arduino.SendData("1");
-
                 Invoke("turnoffvibration", 0.05f);
                 feedbackState = true;
 
@@ -107,21 +96,31 @@ public class EMGInteraction : MonoBehaviour
 
     private void HandleFlex()
     {
-        if (!handInteractor.isSelectActive)
+        if (grabbable = null)
         {
-            handInteractor.StartManualInteraction(grabbable);
+            Debug.Log("Not hovering over interactable");
+        }
 
-            if (CurrentHand == Hand.Right)
+        if (!handInteractor.isSelectActive && (righthovercheck._isHovering == true || lefthovercheck._isHovering == true ))
+        {
+
+
+            if (CurrentHand == Hand.Right && righthovercheck._isHovering == true)
             {
-
                 righthandcomplete.HideHandOnSelectEMG();
+                grabbable = righthovercheck._interactableobject;
+
+                Debug.Log(grabbable);
+
             }
-            else if (CurrentHand == Hand.Left)
+            else if (CurrentHand == Hand.Left && lefthovercheck._isHovering == true)
             {
 
                 lefthandcomplete.HideHandOnSelectEMG();
+                grabbable = lefthovercheck._interactableobject;
             }
 
+            handInteractor.StartManualInteraction(grabbable);
 
         }
 
@@ -130,8 +129,11 @@ public class EMGInteraction : MonoBehaviour
 
     private void HandleRelaxed()
     {
-        if (handInteractor.isSelectActive)
+        // if (handInteractor.isSelectActive)
+        if(handInteractor.isPerformingManualInteraction)
         {
+            
+
             handInteractor.EndManualInteraction();
 
             if (CurrentHand == Hand.Right)
@@ -145,29 +147,20 @@ public class EMGInteraction : MonoBehaviour
                 lefthandcomplete.HideHandOnDeSelectEMG();
             }
 
-
-
-
         }
 
-
     }
 
 
 
 
-    private void turnoffvibration()
-    {
-        //serial.Write("0");
-         _arduino.SendData("0");
 
-    }
 
     #region Seperate settings for Right & Left Hands
 
     public void SetRightHand()
     {
-      //  if (CurrentHand != Hand.Right)
+      
         {
 
             if (_initialHandSelect == true)
@@ -183,9 +176,7 @@ public class EMGInteraction : MonoBehaviour
 
             righthandcomplete.SettoRobot();
             lefthandcomplete.SettoHuman();
-            
-
-
+  
             Debug.Log("RightHandSelected");
             Invoke("DisableCanvas", 1f);
         }
@@ -266,5 +257,11 @@ public class EMGInteraction : MonoBehaviour
     private void DisableCanvas()
     {
         CanvasCalib.SetActive(false);
+    }
+    private void turnoffvibration()
+    {
+        //serial.Write("0");
+        _arduino.SendData("0");
+
     }
 }

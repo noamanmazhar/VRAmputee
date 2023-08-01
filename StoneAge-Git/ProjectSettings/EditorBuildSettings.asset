@@ -6,8 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Club and Fruits.unity
+    path: Assets/Scenes/1. StoneAgeScenes/Club and Fruits.unity
     guid: eee93f158757a334595c0c0e0a83783e
+  - enabled: 1
+    path: Assets/Scenes/1. StoneAgeScenes/Axe and Wood.unity
+    guid: 0562ceda4cd05e04194f18ea40e223f4
+  - enabled: 1
+    path: Assets/Scenes/1. StoneAgeScenes/Ladder Climbing.unity
+    guid: 5dfe4202e09b7eb45a27291750caf311
+  - enabled: 1
+    path: Assets/Scenes/1. StoneAgeScenes/Slingshot Bears.unity
+    guid: 56976ba6938a0ca4580e94986a618ace
+  - enabled: 1
+    path: Assets/Scenes/2. MedievalScenes/Bow and Arrow.unity
+    guid: 01533c4cdbabb31439e84b51f04e50d2
+  - enabled: 1
+    path: Assets/Scenes/2. MedievalScenes/Building Wall/Collect Stones.unity
+    guid: 47308f1d1c2985e4b9488e088e6f9ed0
+  - enabled: 1
+    path: Assets/Scenes/2. MedievalScenes/Building Wall/Putting Stones.unity
+    guid: 87d108a8d72828445a076e9d84c09d17
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5861c8843323b70469ab6e4102e38270, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 56e4546c5cc740d4b97f1813f417e5a1, type: 2}
