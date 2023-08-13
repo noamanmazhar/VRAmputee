@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class EMGInteraction : MonoBehaviour
 {
@@ -84,13 +85,30 @@ public class EMGInteraction : MonoBehaviour
 
         }
 
-      
+       
     }
 
     public float LiveEMGValue(float liveEMG)
     {
         liveEMG = _arduino.GetData();
         return liveEMG;
+    }
+
+
+    private void Update() //All Keyboard Inputs only
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+            GetAvgValue();
+
+        if (Input.GetKeyDown(KeyCode.L))
+            SetLeftHand();
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SetRightHand();
+
+        if (Input.GetKeyDown(KeyCode.Q))
+            SceneManager.LoadScene(12);
+
     }
 
 
@@ -264,4 +282,7 @@ public class EMGInteraction : MonoBehaviour
         _arduino.SendData("0");
 
     }
+
+    
+
 }
