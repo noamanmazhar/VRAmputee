@@ -165,7 +165,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1410,7 +1410,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1724,7 +1724,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2024,7 +2024,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2181,7 +2181,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2495,7 +2495,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2652,7 +2652,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -3123,7 +3123,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -3294,7 +3294,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -3437,7 +3437,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -3805,7 +3805,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4133,7 +4133,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4276,7 +4276,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4433,7 +4433,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4604,7 +4604,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4747,7 +4747,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -4904,7 +4904,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -5169,7 +5169,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -5417,7 +5417,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -5619,7 +5619,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -5776,7 +5776,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -5933,7 +5933,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -6090,7 +6090,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -6261,7 +6261,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -6404,7 +6404,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -6654,7 +6654,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -6811,7 +6811,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7030,7 +7030,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7187,7 +7187,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7344,7 +7344,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7501,7 +7501,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7710,7 +7710,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -7867,7 +7867,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -8024,7 +8024,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -8181,7 +8181,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -9047,7 +9047,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -9425,7 +9425,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -9582,7 +9582,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -9854,7 +9854,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -10011,7 +10011,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -10573,7 +10573,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -10716,7 +10716,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -10873,7 +10873,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -11515,7 +11515,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -11709,7 +11709,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -11866,7 +11866,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -12023,7 +12023,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -12180,7 +12180,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -12467,7 +12467,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -12722,7 +12722,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -13104,7 +13104,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -13247,7 +13247,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -13404,7 +13404,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -13656,7 +13656,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -13900,7 +13900,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -14043,7 +14043,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -14304,7 +14304,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -14461,7 +14461,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -15125,7 +15125,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0
@@ -15282,7 +15282,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1114670047}
         m_TargetAssemblyTypeName: RockCollectScoreManager, Assembly-CSharp
         m_MethodName: AddPoint
         m_Mode: 0

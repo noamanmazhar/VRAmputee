@@ -21,6 +21,8 @@ public class EMGInteraction : MonoBehaviour
 
     public Hovercheck righthovercheck;
     public Hovercheck lefthovercheck;
+    public bool _ManualAnimate = false;
+
 
     [SerializeField] private GameObject CanvasCalib;
 
@@ -36,6 +38,7 @@ public class EMGInteraction : MonoBehaviour
     public bool _EMGDebugLog = false;
     private bool feedbackState = false;
     private bool _initialHandSelect = false;
+
 
 
     private void Start()
@@ -70,6 +73,11 @@ public class EMGInteraction : MonoBehaviour
         if (input >= EMGThreshold)
         {
             HandleFlex();
+            if (CurrentHand == Hand.Right)
+                righthandcomplete.HideHandOnSelectEMG();
+            if (CurrentHand == Hand.Left)
+                lefthandcomplete.HideHandOnSelectEMG();
+
             if (!feedbackState)
             {
                 _arduino.SendData("1");
@@ -81,8 +89,16 @@ public class EMGInteraction : MonoBehaviour
         else
         {
             HandleRelaxed();
-            feedbackState = false;
 
+            if (!_ManualAnimate)
+            {
+
+                if (CurrentHand == Hand.Right)
+                    righthandcomplete.HideHandOnDeSelectEMG();
+                if (CurrentHand == Hand.Left)
+                    lefthandcomplete.HideHandOnDeSelectEMG();
+                feedbackState = false;
+            }
         }
 
        
@@ -121,7 +137,7 @@ public class EMGInteraction : MonoBehaviour
 
         if (!handInteractor.isSelectActive && (righthovercheck._isHovering == true || lefthovercheck._isHovering == true ))
         {
-
+            
 
             if (CurrentHand == Hand.Right && righthovercheck._isHovering == true)
             {
@@ -156,12 +172,12 @@ public class EMGInteraction : MonoBehaviour
 
             if (CurrentHand == Hand.Right)
             {
-
+                if(!_ManualAnimate)
                 righthandcomplete.HideHandOnDeSelectEMG();
             }
             else if (CurrentHand == Hand.Left)
             {
-
+                if(!_ManualAnimate)
                 lefthandcomplete.HideHandOnDeSelectEMG();
             }
 
@@ -283,6 +299,19 @@ public class EMGInteraction : MonoBehaviour
 
     }
 
+    public void AnimateFist()
+    {
+        if (CurrentHand == Hand.Right)
+        {
+            righthandcomplete.HideHandOnSelectEMG();
+        }
+        
+        if(CurrentHand == Hand.Left)
+        {
+            lefthandcomplete.HideHandOnSelectEMG();
+        }
     
+    
+    }
 
 }

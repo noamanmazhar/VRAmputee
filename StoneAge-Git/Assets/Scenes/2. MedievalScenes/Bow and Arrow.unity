@@ -2720,7 +2720,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 0.42
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4371,6 +4371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   righthovercheck: {fileID: 117234564}
   lefthovercheck: {fileID: 2137187030}
+  _ManualAnimate: 0
   CanvasCalib: {fileID: 1664537674}
   _arduino: {fileID: 1263677584}
   EMGThreshold: 600
@@ -5723,7 +5724,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2b2a300f447fd2440a04f23ba3774421, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1543b1376c8ab8f43a920f35222ae03b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -40,7 +40,7 @@ public class SceneLoader : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            LoadSceneByNumber(9);
+            LoadSceneByNumber(10);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha0))
         {
