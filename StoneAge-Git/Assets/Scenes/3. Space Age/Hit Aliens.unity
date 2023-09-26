@@ -1751,11 +1751,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012795208846, guid: e318266f60803d548a4b409b52b39d8d, type: 3}
   m_PrefabInstance: {fileID: 606265160}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &389309549 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
-  m_PrefabInstance: {fileID: 809407112}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &399793796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2395,6 +2390,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522216535}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &526906730 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+  m_PrefabInstance: {fileID: 125994430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &535371201
 GameObject:
   m_ObjectHideFlags: 0
@@ -4712,7 +4712,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1332346396016799987, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
   m_PrefabInstance: {fileID: 125994430}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &797623328
+--- !u!114 &797623327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4721,11 +4721,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 797623326}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7401df32efe46f8479a23af58be35b14, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a1ab4ede4e3834e82ba5d2fd7b8e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Warrior_Death: {fileID: 1909680536}
-  _knightscore: {fileID: 0}
+  Warrior_Death: {fileID: 526906730}
+  _knightscore: {fileID: 1866247005}
 --- !u!136 &797623329
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4785,6 +4785,11 @@ Transform:
   m_Father: {fileID: 1539963385}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &807092726 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+  m_PrefabInstance: {fileID: 809407112}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &809407112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4802,7 +4807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.402
+      value: -6.297
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4810,7 +4815,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.144
+      value: -3.124
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5711,7 +5716,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -1332346396016799987, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
   m_PrefabInstance: {fileID: 809407112}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &928183649
+--- !u!114 &928183648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5720,11 +5725,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 928183647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7401df32efe46f8479a23af58be35b14, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a1ab4ede4e3834e82ba5d2fd7b8e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Warrior_Death: {fileID: 389309549}
-  _knightscore: {fileID: 0}
+  Warrior_Death: {fileID: 807092726}
+  _knightscore: {fileID: 1866247005}
 --- !u!136 &928183650
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11231,11 +11236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portName: COM4
   _baudRate: 0
---- !u!95 &1909680536 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
-  m_PrefabInstance: {fileID: 125994430}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967097410
 GameObject:
   m_ObjectHideFlags: 0
@@ -12241,7 +12241,7 @@ CapsuleCollider:
   m_Height: 0.84
   m_Direction: 0
   m_Center: {x: -0.15, y: 0, z: 0}
---- !u!114 &2110998312
+--- !u!114 &2110998311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12250,11 +12250,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2110998309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7401df32efe46f8479a23af58be35b14, type: 3}
+  m_Script: {fileID: 11500000, guid: e7a1ab4ede4e3834e82ba5d2fd7b8e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Warrior_Death: {fileID: 1591118914}
-  _knightscore: {fileID: 0}
+  _knightscore: {fileID: 1866247005}
 --- !u!1 &2137187024
 GameObject:
   m_ObjectHideFlags: 0
