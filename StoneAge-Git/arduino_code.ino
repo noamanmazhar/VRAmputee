@@ -2,8 +2,7 @@
   AnalogReadSerial
 
   Reads an analog input on pin 0, prints the result to the Serial Monitor.
-  Graphical representation is available using Serial Plotter (Tools > Serial Plotter menu).
-  Attach the center pin of a potentiometer to pin A0, and the outside pins to +5V and ground.
+  Attach the output pin of a EMG sensor to pin A0, and the outside pins to +5V and ground.
 
   This example code is in the public domain.
 
@@ -30,15 +29,9 @@ void loop() {
       digitalWrite(5,LOW);}
   }
 
-
-
-
-
-
-
   float sensorValue = analogRead(A0);
 
-   Serial.println(sensorValue);
+  Serial.println(sensorValue);
 
   delay(100); // Wait 100ms
 }

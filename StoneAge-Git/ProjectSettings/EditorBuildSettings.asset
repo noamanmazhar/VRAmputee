@@ -38,12 +38,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SCENES/3. Space Age/Hit Aliens.unity
     guid: 1bc2b8606efe7554ab6dd587419572b5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/SCENES/3. Space Age/Self Defense.unity
-    guid: 4349f57689cb1444496778b5e535b968
-  - enabled: 1
-    path: Assets/Scenes/Main Screen.unity
-    guid: d667b6b803ac5f245997cf44c59a45e5
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 5861c8843323b70469ab6e4102e38270, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 57c67d6c0fa12514aada192d370d213d, type: 2}
