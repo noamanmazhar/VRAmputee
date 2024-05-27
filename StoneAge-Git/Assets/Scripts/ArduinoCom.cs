@@ -10,7 +10,7 @@ using System.IO.Ports;
 public class ArduinoCom : MonoBehaviour
 {
     private SerialPort _port;
-    public string portName = "COM4";
+    public string portName = "COM3";
     public int _baudRate = 115200;
     
 
@@ -46,7 +46,7 @@ public class ArduinoCom : MonoBehaviour
     public void Start()  
     {
         // Define the port 
-        _port = new SerialPort("COM4", 115200);
+        _port = new SerialPort("COM3", 115200);
 
 
         if (!_isThreadEMGRunning)

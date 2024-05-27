@@ -4401,7 +4401,7 @@ MonoBehaviour:
   _ManualAnimate: 0
   CanvasCalib: {fileID: 1664537674}
   _arduino: {fileID: 1263677584}
-  EMGThreshold: 600
+  EMGThreshold: 60
   CalibrationDuration: 3
   _EMGDebugLog: 0
 --- !u!114 &1263677586
